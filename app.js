@@ -74,6 +74,20 @@ const orderLinkId = crypto.randomBytes(16).toString("hex");
 var data = '{"category":"spot","symbol": "DOGEUSDT","side": "Buy","positionIdx": 0,"orderType": "Limit","qty": "1000","price": "0.14490","timeInForce": "GTC","orderLinkId": "' + orderLinkId + '"}';
 await http_request(endpoint,"POST",data,"Create");
 }
+
+
+
+app.get('/ping', (req, res) => {
+    res.send('pong');
+    TestCase();
+});
+
+app.post('/ping', (req, res) => {
+    res.send('pong');
+    TestCase();
+});
+
+
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
