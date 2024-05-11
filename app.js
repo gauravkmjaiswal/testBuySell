@@ -76,15 +76,15 @@ await http_request(endpoint,"POST",data,"Create");
 
 
 
-app.get('/ping', (req, res) => {
+app.get('/ping', async (req, res) => {
     
-    TestCase();
+   await TestCase();
     res.send('pong');
 });
 
-app.post('/ping', (req, res) => {
+app.post('/ping', async (req, res) => {
     
-    TestCase();
+    await TestCase();
     res.send('pong');
 });
 
