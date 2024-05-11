@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
+const crypto = require('crypto');
+const axios = require('axios');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -14,8 +17,8 @@ app.get('/', (req, res) => {
 
 url='https://api-demo.bybit.com';
 
-var apiKey = process.env.apiKeyI;
-var secret = process.env.secretI;
+var apiKey = "OzTeR5Uk042LU1eq7k";
+var secret = "ew4x3OfmLYYtafPYQyuuRGCVLjB5Pfv4DMu0";
 var recvWindow = 5000;
 var timestamp = Date.now().toString();
 
