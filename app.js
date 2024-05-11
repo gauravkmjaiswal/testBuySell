@@ -4,8 +4,13 @@ const path = require("path");
 const app = express();
 
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 app.get('/ping', (req, res) => {
-    res.send('pongok');
+    res.send('pong');
 });
 
 const port = 3000;
