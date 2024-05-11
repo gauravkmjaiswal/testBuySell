@@ -1,8 +1,4 @@
 
-Gaurav km Jaiswal <gauravjais12072000@gmail.com>
-3:54 PM (12 minutes ago)
-to me
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
