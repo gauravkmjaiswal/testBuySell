@@ -12,11 +12,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get('/ping', (req, res) => {
-    
-    TestCase();
-    res.send('pong');
-});
 
 
 
@@ -24,7 +19,7 @@ url='https://api-demo.bybit.com';
 
 var apiKey = "OzTeR5Uk042LU1eq7k";
 var secret = "ew4x3OfmLYYtafPYQyuuRGCVLjB5Pfv4DMu0";
-var recvWindow = 5000;
+var recvWindow = 10000;
 var timestamp = Date.now().toString();
 
 function getSignature(parameters, secret) {
