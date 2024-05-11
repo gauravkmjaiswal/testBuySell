@@ -1,17 +1,26 @@
+
+Gaurav km Jaiswal <gauravjais12072000@gmail.com>
+3:54 PM (12 minutes ago)
+to me
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
+const app = express();
 const crypto = require('crypto');
 const axios = require('axios');
-
-const app = express();
 
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send("ok dear");
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/ping', (req, res) => {
+    
+    TestCase();
+    res.send('pong');
+});
 
 
 
@@ -57,7 +66,7 @@ async function http_request(endpoint,method,data,Info) {
     };
 
     console.log(Info + " Calling....");
-    await axios(config)
+    return await axios(config)
     .then(function (response) {
         console.log(JSON.stringify(response.data));
       })
@@ -68,17 +77,18 @@ async function http_request(endpoint,method,data,Info) {
 
 async function TestCase()
 {
-endpoint="/v5/order/create"
-const orderLinkId = crypto.randomBytes(16).toString("hex");
-var data = '{"category":"spot","symbol": "DOGEUSDT","side": "Buy","positionIdx": 0,"orderType": "Limit","qty": "1000","price": "0.14490","timeInForce": "GTC","orderLinkId": "' + orderLinkId + '"}';
-await http_request(endpoint,"POST",data,"Create");
+    endpoint="/v5/order/create"
+    const orderLinkId = crypto.randomBytes(16).toString("hex");
+    var data = '{"category":"spot","symbol": "DOGEUSDT","side": "Buy","positionIdx": 0,"orderType": "Limit","qty": "1000","price": "0.14490","timeInForce": "GTC","orderLinkId": "' + orderLinkId + '"}';
+    // await http_request(endpoint,"POST",data,"Create");
+    return await http_request(endpoint,"POST",data,"Create");
 }
 
 
 
 app.get('/ping', async (req, res) => {
     
-   await TestCase();
+    await TestCase();
     res.send('pong');
 });
 
