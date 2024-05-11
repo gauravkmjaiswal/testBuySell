@@ -19,7 +19,7 @@ url='https://api-demo.bybit.com';
 
 var apiKey = "OzTeR5Uk042LU1eq7k";
 var secret = "ew4x3OfmLYYtafPYQyuuRGCVLjB5Pfv4DMu0";
-var recvWindow = 10000;
+var recvWindow = 1000000;
 var timestamp = Date.now().toString();
 
 function getSignature(parameters, secret) {
