@@ -78,13 +78,15 @@ await http_request(endpoint,"POST",data,"Create");
 
 
 app.get('/ping', (req, res) => {
-    res.send('pong');
+    
     TestCase();
+    res.send('pong');
 });
 
 app.post('/ping', (req, res) => {
-    res.send('pong');
+    
     TestCase();
+    res.send('pong');
 });
 
 
